@@ -23,9 +23,9 @@ echo "Admin Created. Done."
 ## Run server manage entrypoint. This runs
 ## /app/manage.py users create_root [admin_email] admin --password [admin_email]
 ## This command is to create a base line admin user. 
-HOST_IP_ADDRESS=ds-postgres.cczwnfd9o32m.ap-south-1.rds.amazonaws.com
-POSTGRES_DB_NAME="postgres"
-POSTGRES_DB_USER="postgres"
+HOST_IP_ADDRESS=$1
+POSTGRES_DB_NAME=$2
+POSTGRES_DB_USER=$3
 
 ## Run server manage entrypoint. This runs
 ## /app/manage.py manage ds new --type pg --options 
