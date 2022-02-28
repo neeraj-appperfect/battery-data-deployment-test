@@ -1,17 +1,15 @@
-apt-get update && apt-get install -y pwgen
+sudo yum -y update && sudo yum install -y pwgen
 rm /app/env
 cd /app
 
-COOKIE_SECRET=$(pwgen -1s 32)
-SECRET_KEY=$(pwgen -1s 32)
-REDASH_ADMIN_PASSWORD=$(pwgen -1s 32)
-POSTGRES_PASSWORD=$(pwgen -1s 32)
+COOKIE_SECRET=$(pwgen -1 32)
+SECRET_KEY=$(pwgen -1 32)
+REDASH_ADMIN_PASSWORD=$(pwgen -1 32)
+POSTGRES_PASSWORD=$1
 REDASH_DATABASE_URL="postgresql://postgres:${POSTGRES_PASSWORD}@postgres/postgres"
-DATABASE_CONNECTION="postgresql://postgres:${POSTGRES_PASSWORD}@ds-postgres:5432/postgres"
-#REDASH_DATABASE_URL="postgresql://postgres:PVWXGOQRBAoHuh2IBye0@database-1.cdy87qtuhnlg.us-west-2.rds.amazonaws.com/postgres"
-#DATABASE_CONNECTION="postgresql://postgres:ZK6mRSPEfVUFuxx7oWmy@database-2.cdy87qtuhnlg.us-west-2.rds.amazonaws.com/postgres"
-PGADMIN4_PASSWORD=$(pwgen -1s 32)
-DEFAULT_EMAIL=pghege@gmail.com
+DATABASE_CONNECTION=$2
+PGADMIN4_PASSWORD=$(pwgen -1 32)
+DEFAULT_EMAIL=$3
 
 echo "writing configurations to env..."
 echo "PYTHONUNBUFFERED=0" >> env
