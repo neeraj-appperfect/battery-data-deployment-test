@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+
+
 scheduler() {
   echo "Starting RQ scheduler..."
 
